@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Contact Form</title>
+    <link rel="stylesheet" href="style.css" />
+    <script
+      src="https://kit.fontawesome.com/64d58efce2.js"
+      crossorigin="anonymous"
+    ></script>
+  </head>
+  <body>
+    <!-- Preloader -->
+    <div class="loader">
+      <div class="spinner"></div>
+    </div>
+
+    <div class="container">
+      <span class="big-circle"></span>
+      <img src="img/shape.png" class="square" alt="" />
+      <div class="form">
+        <div class="contact-info">
+          <h3 class="title">Let's get in touch</h3>
+          <p class="text">
+            Sakthi Cinemas is a state-of-the-art entertainment venue offering a premium movie-watching experience in Gudiyatham. Enjoy the latest films in comfort and style.
+          </p>
+
+          <div class="info">
+            <div class="information">
+              <img src="img/location.png" class="icon" alt="" />
+              <p>National Highway 234, Bosepet, Gudiyatham, Tamil Nadu 632602</p>
+            </div>
+            <div class="information">
+              <img src="img/email.png" class="icon" alt="" />
+              <p>sakthicinemas@gmail.com</p>
+            </div>
+            <div class="information">
+              <img src="img/phone.png" class="icon" alt="" />
+              <p>6380553611</p>
+            </div>
+            <div class="information">
+              <img src="img/map.png" class="icon" alt="" />
+              <a href="https://maps.app.goo.gl/Rk3gCmJzhBKVcgDD6" target="_blank">
+                View Location on Map
+              </a>
+            </div>
+          </div>
+
+          <div class="social-media">
+            <p>Connect with us :</p>
+            <div class="social-icons">
+              <a href="https://www.facebook.com/sakthicinemasoffl" target="_blank">
+                <img src="20673.png" alt="Facebook" class="social-icon" />
+              </a>
+              <a href="https://www.instagram.com/sakthi.cinemas/?hl=en" target="_blank">
+                <img src="black-instagram-logo-3497.png" alt="Instagram" class="social-icon" />
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <div class="contact-form">
+          <span class="circle one"></span>
+          <span class="circle two"></span>
+
+          <!-- Web3Forms contact form -->
+          <form action="https://api.web3forms.com/submit" method="POST" autocomplete="off">
+            <h3 class="title">Contact us</h3>
+            <div class="input-container">
+              <input type="text" name="name" class="input" required />
+              <label for="">Username</label>
+              <span>Username</span>
+            </div>
+            <div class="input-container">
+              <input type="email" name="email" class="input" required />
+              <label for="">Email</label>
+              <span>Email</span>
+            </div>
+            <div class="input-container">
+              <input type="tel" name="phone" class="input" required />
+              <label for="">Phone</label>
+              <span>Phone</span>
+            </div>
+            <div class="input-container textarea">
+              <textarea name="message" class="input" required></textarea>
+              <label for="">Message</label>
+              <span>Message</span>
+            </div>
+            <!-- Hidden field for access key -->
+            <input type="hidden" name="access_key" value="43a24836-8e87-4b7e-bc49-868460e854bb" />
+            <button type="submit" class="btn">Send</button>
+          </form>
+        </div>
+      </div>
+    </div>
+
+    <!-- Sending Message -->
+    <div id="sendingMessage" style="display: none;">Sending...</div>
+
+    <script src="app.js"></script>
+  </body>
+</html>
+

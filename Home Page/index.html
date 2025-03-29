@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sakthi Cinemas</title>
+    <link rel="icon" href="Logo.webp" type="image/png">
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+    checkLoginStatus();
+});
+
+function togglePopup() {
+    document.getElementById("popup-overlay").style.display = "block";
+    document.getElementById("login-modal").style.display = "block";
+}
+
+function closePopup() {
+    document.getElementById("popup-overlay").style.display = "none";
+    document.getElementById("login-modal").style.display = "none";
+}
+
+function showTab(tabName) {
+    document.getElementById("login-tab").style.display = tabName === 'login' ? 'block' : 'none';
+    document.getElementById("signup-tab").style.display = tabName === 'signup' ? 'block' : 'none';
+}
+
+function register() {
+    let name = document.getElementById("signup-name").value;
+    let email = document.getElementById("signup-email").value;
+    let password = document.getElementById("signup-password").value;
+
+    if (name && email && password) {
+        localStorage.setItem("user", JSON.stringify({ name, email, password }));
+        alert("Registration successful! You can now log in.");
+        showTab('login');
+    } else {
+        alert("Please fill in all fields.");
+    }
+}
+
+function login() {
+    let email = document.getElementById("login-email").value;
+    let password = document.getElementById("login-password").value;
+    let storedUser = JSON.parse(localStorage.getItem("user"));
+
+    if (storedUser && storedUser.email === email && storedUser.password === password) {
+        localStorage.setItem("loggedInUser", storedUser.name);
+        alert("Login successful!");
+        updateUI();
+        closePopup();
+    } else {
+        alert("Invalid email or password.");
+    }
+}
+
+function checkLoginStatus() {
+    let loggedInUser = localStorage.getItem("loggedInUser");
+    if (loggedInUser) {
+        updateUI();
+    }
+}
+
+function updateUI() {
+    let loggedInUser = localStorage.getItem("loggedInUser");
+    let loginButton = document.querySelector(".action");
+    
+    if (loggedInUser) {
+        loginButton.innerHTML = loggedInUser + ' | <a href="#" onclick="logout()">Logout</a>';
+    }
+}
+
+function logout() {
+    localStorage.removeItem("loggedInUser");
+    alert("Logged out successfully.");
+    location.reload();
+}
+
+    </script>
+</head>
+<body>
+    <header>
+        <div class="logo-container">
+            <img src="Logo.webp" alt="Sakthi Cinemas Logo" class="logo-img">
+            <a href="#" class="logo">Sakthi Cinemas</a>
+        </div>
+        <a href="#" class="action" onclick="togglePopup()">Login</a>
+    </header>
+    <nav class="menu">
+        <ul class="nav-links">
+            <li><a href="#" class="nav-item">Home</a></li>
+            <li><a href="https://kanishkar-git.github.io/moviespage/" class="nav-item">Movies</a></li>
+            <li><a href="https://kanishkar-git.github.io/aboutuspage/" class="nav-item">About Us</a></li>
+            <li><a href="https://kanishkar-git.github.io/Contactuspage/" class="nav-item">Contact Us</a></li>
+        </ul>
+    </nav>
+    <div class="slideshow">
+        <div class="slide active"><img src="images/kudumbasthan.jpg" alt="Slide 1"></div>
+        <div class="slide"><img src="images/marco.avif" alt="Slide 2"></div>
+        <div class="slide"><img src="images/pushpa2.jpg" alt="Slide 3"></div>
+        <div class="slide"><img src="images/Mrhk.jpg" alt="Slide 4"></div>
+        <div class="slide"><img src="images/vanangaan.avif" alt="Slide 5"></div>
+        <div class="slide"><img src="images/Kadhalikka Neramillai.avif" alt="Slide 6"></div>
+        <div class="slide"><img src="images/kanguva.jpg" alt="Slide 7"></div>
+        <div class="slide"><img src="images/good-bad-ugly-wallpaper-material-shots-v0-mzvqg44tfhbe1.jpg" alt="Slide 8"></div>
+        <div class="slide"><img src="images/retro.jpg" alt="Slide 9"></div>
+    </div>
+    <footer>
+        <div class="connect">
+            <h3>CONNECT WITH US</h3>
+            <div class="social-icons">
+                <a href="https://www.instagram.com/sakthi.cinemas/?hl=en" target="_blank"><img src="black-instagram-logo-3497.png" alt="Instagram" class="social-icon"></a>
+                <a href="https://www.facebook.com/sakthicinemasoffl/" target="_blank"><img src="20673.png" alt="Facebook" class="social-icon"></a>
+            </div>
+        </div>
+        <p class="copyright">&copy; 2025 Sakthi Cinemas | All Rights Reserved.</p>
+    </footer>
+    <!-- Login/Signup Modal -->
+<div id="popup-overlay" style="display: none;" onclick="closePopup()"></div>
+<div id="login-modal" class="modal" style="display: none;">
+    <div class="modal-content">
+        <span class="close-btn" onclick="closePopup()">&times;</span>
+        <div class="tab-buttons">
+            <button onclick="showTab('login')">Login</button>
+            <button onclick="showTab('signup')">Sign Up</button>
+        </div>
+
+        <div id="login-tab" class="tab active">
+            <h2>Login</h2>
+            <input type="email" id="login-email" placeholder="Enter Email" required>
+            <input type="password" id="login-password" placeholder="Enter Password" required>
+            <button onclick="login()">Login</button>
+            <p id="login-error-msg"></p>
+        </div>
+
+        <div id="signup-tab" class="tab" style="display: none;">
+            <h2>Sign Up</h2>
+            <input type="text" id="signup-name" placeholder="Enter Name" required>
+            <input type="email" id="signup-email" placeholder="Enter Email" required>
+            <input type="password" id="signup-password" placeholder="Enter Password" required>
+            <button onclick="register()">Sign Up</button>
+        </div>
+    </div>
+</div>
+
+
+    
+    <script src="script.js"></script>
+</body>
+</html>

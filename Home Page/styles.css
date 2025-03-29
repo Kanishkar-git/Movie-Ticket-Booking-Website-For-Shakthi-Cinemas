@@ -1,0 +1,257 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap');
+
+:root {
+    --bg-color:#c6c6c6;
+    --text: #333;
+    --gold: #ffd700;
+    --gold-dark: #b89d00;
+    --shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Roboto", sans-serif;
+}
+
+html, body {
+    height: 100%;
+}
+
+a {
+    text-decoration: none;
+    color: var(--gold);
+}
+
+body {
+    background-color: var(--bg-color);
+    line-height: 1.6;
+}
+
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 10%;
+    background-color: var(--text);
+    color: var(--gold);
+    box-shadow: var(--shadow);
+}
+
+.logo-container {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.logo-img {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    transition: transform 0.3s ease;
+}
+
+.logo-img:hover {
+    transform: scale(1.1);
+}
+
+.logo {
+    font-size: 25px;
+    text-transform: uppercase;
+    font-weight: bold;
+    letter-spacing: 1.5px;
+}
+
+.menu {
+    display: flex;
+    justify-content: center;
+    background-color: var(--text);
+    padding: 10px 0;
+    box-shadow: var(--shadow);
+}
+
+.nav-links {
+    list-style: none;
+    display: flex;
+    gap: 20px;
+}
+
+.nav-links li {
+    margin: 0;
+}
+
+.nav-item {
+    font-size: 18px;
+    color: var(--gold);
+    transition: color 0.3s, transform 0.3s;
+}
+
+.nav-item:hover {
+    color: var(--gold-dark);
+    transform: translateY(-3px);
+}
+
+.action {
+    padding: 9px 25px;
+    background-color: var(--gold);
+    border-radius: 50px;
+    color: var(--text);
+    font-weight: bold;
+    transition: background-color 0.3s, transform 0.3s;
+}
+
+.action:hover {
+    background-color: var(--gold-dark);
+    transform: scale(1.05);
+}
+
+.slideshow {
+    width: 100%; /* Full width of the container */
+    height: 640px; /* Fixed height for the slideshow */
+    position: relative;
+    overflow: hidden;
+    margin: 20px auto; /* Center the slideshow */
+    border-radius: 10px;
+    box-shadow: var(--shadow);
+}
+
+.slide {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+    transition: opacity 1s ease-in-out, transform 1s ease-in-out;
+    transform: translateX(100%); /* Start off-screen to the right */
+}
+
+.slide img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Ensures the image covers the entire container */
+    border-radius: 10px;
+}
+
+.slide.active {
+    opacity: 1;
+    transform: translateX(0); /* Slide into view */
+}
+
+.slide.prev {
+    transform: translateX(-100%); /* Slide out to the left */
+}
+
+footer {
+    background-color: var(--text);
+    color: var(--gold);
+    text-align: center;
+    padding: 20px 10px;
+    margin-top: 20px;
+    box-shadow: var(--shadow);
+}
+
+.connect {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 15px;
+    margin-bottom: 10px;
+}
+
+.connect h3 {
+    font-size: 24px;
+    margin-bottom: 10px;
+}
+
+.social-icons {
+    display: flex;
+    gap: 20px;
+}
+
+.social-icon {
+    width: 40px;
+    height: 40px;
+    cursor: pointer;
+    transition: transform 0.3s, opacity 0.3s;
+}
+
+.social-icon:hover {
+    transform: scale(1.2);
+    opacity: 0.8;
+}
+
+footer p {
+    font-size: 14px;
+    margin: 0;
+}
+
+#popup-overlay {
+    position: fixed;
+    top: 0; left: 0; right: 0; bottom: 0;
+    background: rgba(0,0,0,0.7);
+    z-index: 999;
+}
+.modal {
+    position: fixed;
+    top: 50%; left: 50%;
+    transform: translate(-50%, -50%);
+    background: #fff;
+    border-radius: 15px;
+    padding: 30px;
+    z-index: 1000;
+    width: 90%;
+    max-width: 400px;
+    box-shadow: 0 0 20px rgba(0,0,0,0.3);
+}
+.modal-content {
+    display: flex;
+    flex-direction: column;
+}
+.close-btn {
+    text-align: right;
+    font-size: 28px;
+    cursor: pointer;
+}
+.tab-buttons {
+    display: flex;
+    margin-bottom: 20px;
+}
+.tab-buttons button {
+    flex: 1;
+    padding: 10px;
+    border: none;
+    background: #eee;
+    cursor: pointer;
+    transition: 0.3s;
+}
+.tab-buttons button:hover {
+    background: #ccc;
+}
+.tab {
+    display: none;
+}
+.tab.active {
+    display: block;
+}
+.modal input {
+    padding: 10px;
+    margin: 8px 0;
+    width: 100%;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+}
+.modal button {
+    background: #ff5e00;
+    color: white;
+    border: none;
+    padding: 12px;
+    border-radius: 8px;
+    margin-top: 10px;
+    cursor: pointer;
+}
+.remember-forgot {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}

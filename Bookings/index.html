@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="styles.css" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+
+    <title>Movie Seat Booking</title>
+  </head>
+  <body>
+    <div class="movie-container">
+      <label> Select a movie:</label>
+      <select id="movie">
+        <option value="160">THARUNAM-TAMIL(RS.160)</option>
+        <option value="160">2D TAMIL MUFASA THE LION KING(RS.160)</option>
+        <option value="160">MADRASKAARAN-TAMIL(RS.160)</option>
+        <option value="160">DAAKU MAHARAJ-TELUGU(RS.160)</option>
+        <option value="160">VANANGAAN(RS.160)</option>
+        <option value="160">GAME CHANGER(RS.160)</option>
+        <option value="160">MARCO(RS.160)</option>
+        <option value="160">NESIPPAYA(RS.160)</option>
+        <option value="160">REKHACHITHRAM(RS.160)</option>
+        <option value="160">SANKRANTHIKI VASTHUNAM(RS.160)</option>
+        <option value="160">PUSHPA: THE RULE PART 2(RS.160)</option>
+      </select>
+    </div>
+
+
+    <div class="container">
+      <div class="screen"></div>
+
+      <div class="row">
+        <div class="seat"></div>
+        <div class="seat"></div>
+        <div class="seat"></div>
+        <div class="seat"></div>
+        <div class="seat"></div>
+        <div class="seat"></div>
+        <div class="seat"></div>
+        <div class="seat"></div>
+      </div>
+
+      <div class="row">
+        <div class="seat"></div>
+        <div class="seat"></div>
+        <div class="seat"></div>
+        <div class="seat sold"></div>
+        <div class="seat sold"></div>
+        <div class="seat"></div>
+        <div class="seat"></div>
+        <div class="seat"></div>
+      </div>
+      <div class="row">
+        <div class="seat"></div>
+        <div class="seat"></div>
+        <div class="seat"></div>
+        <div class="seat"></div>
+        <div class="seat"></div>
+        <div class="seat"></div>
+        <div class="seat sold"></div>
+        <div class="seat sold"></div>
+      </div>
+      <div class="row">
+        <div class="seat"></div>
+        <div class="seat"></div>
+        <div class="seat"></div>
+        <div class="seat"></div>
+        <div class="seat"></div>
+        <div class="seat"></div>
+        <div class="seat"></div>
+        <div class="seat"></div>
+      </div>
+      <div class="row">
+        <div class="seat"></div>
+        <div class="seat"></div>
+        <div class="seat"></div>
+        <div class="seat sold"></div>
+        <div class="seat sold"></div>
+        <div class="seat"></div>
+        <div class="seat"></div>
+        <div class="seat"></div>
+      </div>
+      <div class="row">
+        <div class="seat"></div>
+        <div class="seat"></div>
+        <div class="seat"></div>
+        <div class="seat"></div>
+        <div class="seat sold"></div>
+        <div class="seat sold"></div>
+        <div class="seat sold"></div>
+        <div class="seat"></div>
+      </div>
+    </div>
+    <div class="summary">
+      <div class="total-price">
+        <strong>₹<span id="total">0</span></strong>
+        <p>Tickets <span id="count">0</span> X ₹<span id="pricePerTicket">0</span></p>
+      </div>
+      <button class="book-btn">Book Tickets</button>
+    </div>
+    <div class="show-info">
+      <div class="date-info">
+          <span class="day">Thu</span>
+          <span class="date">06 Feb</span>
+      </div>
+      <div class="show-timings">
+          <button class="time selected">12:15 PM <span>2D</span></button>
+          <button class="time">03:30 PM <span>2D</span></button>
+          <button class="time">06:45 PM <span>2D</span></button>
+          <button class="time">10:00 PM <span>2D</span></button>
+      </div>
+      <div class="legend">
+          <span class="available"></span> AVAILABLE
+          <span class="booked"></span> BOOKED
+          <span class="selected"></span> SELECTED
+      </div>
+  </div>
+  
+    
+    <script src="script.js"></script>
+    <script src="https://checkout.razorpay.com/v1/checkout.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+
+  </body>
+</html>
